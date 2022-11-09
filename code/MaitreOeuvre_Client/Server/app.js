@@ -50,43 +50,6 @@ async function main() {
 
   //INITIALISATION DES LISTES DE PROPOSITIONS ET DE CONTRE-PROPOSITIONS
   await mongoose.connect("mongodb://localhost:27017/client1");
-
-  /*const test = new PropositionBDD({sujet:"test",description:"Une batterie de test pour voir si ça marche",cout:0,delai:"5 jours",quantite:0,estValide:false,caracteristiques:["Robuste","Métallique","flexible"]});
-  await test.save();
-  const testContre = new ContrePropositionBDD({proposition:test._id,reponse:"Une batterie de test pour voir si ça marche",cout:0,delai:"5 jours",quantite:0,estValide:false,estAccepte:false,caracteristiques:["Robuste","Métallique","flexible"]});
-  testContre.save();
-  const propositionsBDD = await PropositionBDD.find();
-  const contrePropositionBDD = await ContrePropositionBDD.find();
-  console.log(propositionsBDD);
-  console.log(contrePropositionBDD);*/
-
-
-  //////EXEMPLES MONGOOSE//////
-
-  /*const kittySchema = new mongoose.Schema({
-    name: String
-  });
-  
-  kittySchema.methods.speak = function speak() {
-    const greeting = this.name
-      ? "Meow name is " + this.name
-      : "I don't have a name";
-    console.log(greeting);
-  }
-  
-  
-  const kitten = mongoose.model("kitten", kittySchema);
-  const silence = new kitten({ name: "Silence" });
-  const prout = new kitten({ name: 'prout' });
-  await prout.save();
-  await silence.save();
-
-  
-  const kittens = await kitten.find();
-  //console.log(kittens);
-  console.log(prout._id);
-  const pouet = await kitten.find({ _id: prout._id });
-  console.log(pouet);*/
 }
 ///GESTION DE L'API ET DES ENDPONTS/////////////////
 
