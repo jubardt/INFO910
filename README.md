@@ -14,3 +14,11 @@ Le projet est composé de plusieurs éléments:
 Chacune de ces composantes à été dockeriser:
 - Il existe un Dockerfile diffèrent pour le front et le back permettant de fournir une image de chacune des 2 applications
 - Un fichier **docker-compose** est là pour faire le lien entre les applications et instancier la base mongo. Il permet de lancer chacun des conteneurs et de les relancer en cas d'erreur
+
+## Fonctionnement
+
+- Pour lancer l'application, installer docker sur votre machine
+- Une fois installer, lancer la commande suivante depuis la racine du répertoire
+  ```
+  docker compose up
+  ```
