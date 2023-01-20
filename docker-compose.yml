@@ -1,0 +1,32 @@
+version: "3"
+services:
+  # Définition du conteneur servant le front (application Vue.js)
+  front:
+    build:
+      context: ./Client/app
+      dockerfile: Dockerfile
+    image: appli/vue
+    container_name: front
+    ports:
+      - "8080:8080"
+    # On attend que le conteneur back soit prêt avant de démarrer le front
+    depends_on:
+      - back
+  # Définition du conteneur servant le back (application Node.js pour l'API REST et le serveur WebSocket)
+  back:
+    build:
+      context: ./Server
+      dockerfile: Dockerfile
+    image: appli/back
+    container_name: back
+    ports:
+      - "3000:3000"
+      - "9000:9000"
+
+  # Définition du conteneur MongoDB, utilisant une image déjà prête de monogdb
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    restart: always
+    ports:
+      - "27017:27017"
