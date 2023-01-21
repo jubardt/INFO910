@@ -18,7 +18,8 @@ Chacune de ces composantes à été dockeriser:
 ## Fonctionnement
 
 - Pour lancer l'application, installer docker sur votre machine
-- Une fois installer, lancer la commande suivante depuis la racine du répertoire
+- Se placer depuis une invite de commande (linux, MAC OS ou Windows) dans le répertoire du projet
+- Une fois dans le répertoire, lancez la commande suivante afin de lancer les conteneurs 
   ```
   docker compose up
   ```

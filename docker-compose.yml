@@ -25,6 +25,7 @@ services:
     # On attend que le conteneur MongoDB soit prêt avant de démarrer le back
     depends_on:
       - mongo
+    # Permet l'accès à la bdd depuis le code sans avoir à spécifier l'adresse de la bdd
     external_links:
       - mongo
 
@@ -32,6 +33,7 @@ services:
   mongo:
     image: mongo
     container_name: mongo
+    # La base de données se relancera en cas de crash
     restart: always
     ports:
       - "27017:27017"
