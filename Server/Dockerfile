@@ -1,22 +1,16 @@
-# On travaille avec la dernière version de node
-FROM node:lts-alpine
+FROM node:18
 
+# Create app directory
+WORKDIR /api
 
-# définit le dossier 'app' comme dossier de travail
-WORKDIR /app
+# Install app dependencies
+# A wildcard is used to ensure both package.json AND package-lock.json are copied
+# where available (npm@5+)
+COPY package.json ./
 
-# copie 'package.json' et 'package-lock.json' (si disponible)
-COPY package*.json ./
-
-# installe les dépendances du projet
 RUN npm install
-
-# copie les fichiers et dossiers du projet dans le dossier de travail (par exemple : le dossier 'app')
+# Bundle app source
 COPY . .
 
-# On expose le port 3000 pour le serveur web et le port 9000 pour le serveur de socket
 EXPOSE 3000
-EXPOSE 9000
-
-# On lance le serveur web et le serveur de socket
 CMD [ "node", "app.js" ]
