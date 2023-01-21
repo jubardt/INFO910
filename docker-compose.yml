@@ -22,11 +22,18 @@ services:
     ports:
       - "3000:3000"
       - "9000:9000"
+    # On attend que le conteneur MongoDB soit prêt avant de démarrer le back
+    depends_on:
+      - mongo
+    external_links:
+      - mongo
 
   # Définition du conteneur MongoDB, utilisant une image déjà prête de monogdb
-  mongodb:
+  mongo:
     image: mongo
-    container_name: mongodb
+    container_name: mongo
     restart: always
     ports:
       - "27017:27017"
+    volumes:
+      - ./data:/data/db

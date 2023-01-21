@@ -48,8 +48,12 @@ main().catch(error => console.error(error));
 
 async function main() {
 
+  const options = {
+    useNewUrlParser: true,
+    };
+
   //INITIALISATION DES LISTES DE PROPOSITIONS ET DE CONTRE-PROPOSITIONS
-  await mongoose.connect("mongodb://localhost:27017/client1");
+  await mongoose.connect("mongodb://mongo:27017/docker-db", options);
 }
 ///GESTION DE L'API ET DES ENDPONTS/////////////////
 
